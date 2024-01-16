@@ -1,0 +1,7 @@
+% This code automatically calculates, labels, and plots 
+N = [200, 5, 10]; % Declare the N that will be ran
+for i = N % iterate through given N for example i = 200 
+    title_text = {['$f(x) \ vs \ X$'] [append('$N = ', string(i), '$') ]}; % Create the the title for each i 
+    filename = append('fx_', string(i));
+    plot_export(i, title_text, filename);
+end

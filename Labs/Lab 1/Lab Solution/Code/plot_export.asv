@@ -1,0 +1,10 @@
+function plot_export(N, title_text, filename) % Input N for the number spacings between the elements, title_text for the name of the plots, and the filename in order to export the plot. Note each plot mus
+x = linspace(0, 5, N + 1); 
+y = fx(x);
+plot(x, y); % Creates the scatter plot 
+title(title_text,'Interpreter','latex'); % Add title to the plot
+xlabel('$X$','Interpreter','latex');
+ylabel('$f(x)$','Interpreter','latex');
+fig = gcf; % Obtains current graphic in matlab
+exportgraphics(fig, append(filename, '.pdf'),'ContentType','vector'); % Exports plot as a vector pdf image. (Requires R2020a or later)
+end
