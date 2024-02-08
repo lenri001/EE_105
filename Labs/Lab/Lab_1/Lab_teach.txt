@@ -1,0 +1,6 @@
+1. Sign in
+2. Discuss TA office hour
+3. Introduce quiz rules
+4. Correct lab manual. 
+	7.(a) "quad" to "integral"
+	7.(b)ii subscript; interval should be identical

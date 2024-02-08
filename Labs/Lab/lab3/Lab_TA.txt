@@ -1,0 +1,21 @@
+1. Once sovling the prelab on the board, show them the Prelab code in the mlx file
+The prelab code is to compare the method from computation with 'bode'.
+Ask them include the prelab code to their report and if they finish the blank comments and
+questions correctly, they will get bonus.
+
+2. Don't show any code below below the end of prelab.
+
+3. Explain the first method and second method in 4.1 to students. As show on the board
+Method 2 need find the index after compute 0.37*y(0)(in Matlab, it's y(1)), their is no
+identical value in y vector, they have to find the closest value, and get the index.
+then tau = t(index).
+if they did this by coding, 5'' bonus, if only 1 line code (see the board), 7'' bonus.
+if they find the value manually, they will not lose points.
+
+4. lab submission inclued 1 .mlx file and 3 simulink file (Sec 4.2) Guide the students
+to use simulink (plot the Figure 1 for them). But do not input the value of a,b,c just make 
+some examples, like 1 or 2. They have to compute a,b,c by themselves (related to prelab).
+
+5. Reminder them 4.2.1 (f) set the initial condition to 0 for following inputs.
+
+6. Reminder them 4.2.2 use a new generator 'Pulse generator' instead of 'Signal generator'

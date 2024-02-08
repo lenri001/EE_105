@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body><w:p><w:pPr><w:pStyle w:val="title"/><w:jc w:val="left"/></w:pPr><w:r><w:t>Prelab (If student did prelab, 20'')</w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="title"/><w:jc w:val="left"/></w:pPr><w:r><w:t>Answer the comments, 5'' bonus.</w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="code"/></w:pPr><w:r><w:t><![CDATA[%Type this follwing code to your lab report!!!!!!!!!!!
+%Bonus : if you can make proper comments for the blank
+% '%' and questions shows below, 
+% you will get bonus (max:5'').
+H = tf(5,[1 5])
+bode(H)
+%For proving (c)
+w = 0.1:0.1:100;
+% Compute magnitude using eqn.(11)
+M = 5./sqrt(25+w.^2);
+% Compute phase using eqn.(11)
+Phi = 180*atan(-0.2*w)/pi;
+figure
+subplot(211)
+% why should we use semilogx and log10 not log?
+% Semilogx to uniformize the x-axis to the results in 'bode'
+% log10 to compute the DB of M(s)
+semilogx(w,20*log10(M));
+ylabel('Magnitude (dB)')
+xlim([0.1,100])
+ylim([-30,0])
+subplot(212)
+semilogx(w,Phi);
+ylim([-90,0])
+ylabel('Phase (deg)')
+xlabel('Frequency (rad/s)')
+]]></w:t></w:r></w:p><w:p><w:pPr><w:sectPr/></w:pPr></w:p><w:p><w:pPr><w:pStyle w:val="title"/><w:jc w:val="left"/></w:pPr><w:r><w:t>4.1</w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="title"/><w:jc w:val="left"/></w:pPr><w:r><w:t>1  (10'')</w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="code"/></w:pPr><w:r><w:t><![CDATA[load('EE105_Lab3data.mat')
+figure
+plot(t,y)
+xlabel('t');ylabel('y');
+title('Plot the data')]]></w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="title"/><w:jc w:val="left"/></w:pPr><w:r><w:t>2 (20'', 10'' for each method)</w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="text"/><w:jc w:val="left"/></w:pPr><w:r><w:t>In second method, if use code to find the index, </w:t></w:r><w:r><w:rPr><w:b/></w:rPr><w:t>5'' bonus</w:t></w:r><w:r><w:t>. If the code only one line, extra </w:t></w:r><w:r><w:rPr><w:b/></w:rPr><w:t>2'' bonus</w:t></w:r><w:r><w:t>.</w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="text"/><w:jc w:val="left"/></w:pPr><w:r><w:t>Time constant</w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="code"/></w:pPr><w:r><w:t><![CDATA[%First method
+y_tau = 0.37*y(1);
+% One line code for index, extra 2'' bonus
+index = find(abs(y_tau-y)==min(abs(y_tau-y)),1);
+tau_1 = t(index)
+
+%Second method
+%Compute dy/dt
+dydt = (y(2:101)-y(1:100))./(t(2:101)-t(1:100));
+a = dydt./y(1:100);
+%You may check a, all the same numbers
+tau_2 = 1/(-a(1))
+]]></w:t></w:r></w:p><w:p><w:pPr><w:sectPr/></w:pPr></w:p><w:p><w:pPr><w:pStyle w:val="title"/><w:jc w:val="left"/></w:pPr><w:r><w:t>4.2 Part 2</w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="title"/><w:jc w:val="left"/></w:pPr><w:r><w:t>1.  (15'')</w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="text"/><w:jc w:val="left"/></w:pPr><w:r><w:rPr><w:b/></w:rPr><w:t>The model: (5'')</w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="text"/><w:jc w:val="left"/></w:pPr><w:customXml w:element="image"><w:customXmlPr><w:attr w:name="height" w:val="-1"/><w:attr w:name="width" w:val="-1"/><w:attr w:name="relationshipId" w:val="rId1"/></w:customXmlPr></w:customXml></w:p><w:p><w:pPr><w:pStyle w:val="text"/><w:jc w:val="left"/></w:pPr><w:r><w:rPr><w:b/></w:rPr><w:t>Output: (10'')</w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="text"/><w:jc w:val="left"/></w:pPr><w:customXml w:element="image"><w:customXmlPr><w:attr w:name="height" w:val="-1"/><w:attr w:name="width" w:val="-1"/><w:attr w:name="relationshipId" w:val="rId2"/></w:customXmlPr></w:customXml></w:p><w:p><w:pPr><w:pStyle w:val="title"/><w:jc w:val="left"/></w:pPr><w:r><w:t>2.  (15'')</w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="text"/><w:jc w:val="left"/></w:pPr><w:r><w:rPr><w:b/></w:rPr><w:t>The model: (5'')</w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="text"/><w:jc w:val="left"/></w:pPr><w:customXml w:element="image"><w:customXmlPr><w:attr w:name="height" w:val="196"/><w:attr w:name="width" w:val="501"/><w:attr w:name="relationshipId" w:val="rId3"/></w:customXmlPr></w:customXml></w:p><w:p><w:pPr><w:pStyle w:val="text"/><w:jc w:val="left"/></w:pPr><w:r><w:rPr><w:b/></w:rPr><w:t>Output: (5'')</w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="text"/><w:jc w:val="left"/></w:pPr><w:customXml w:element="image"><w:customXmlPr><w:attr w:name="height" w:val="-1"/><w:attr w:name="width" w:val="-1"/><w:attr w:name="relationshipId" w:val="rId4"/></w:customXmlPr></w:customXml></w:p><w:p><w:pPr><w:pStyle w:val="text"/><w:jc w:val="left"/></w:pPr><w:r><w:rPr><w:b/></w:rPr><w:t>(c)  (3'') Zoom in the curve, we can fiond it is about 2.8 seconds (If answer greater than 2.5s, that's right) to stable, which greater than the time constan.</w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="text"/><w:jc w:val="left"/></w:pPr><w:r><w:rPr><w:b/></w:rPr><w:t>(d) (2'') Steady state value of y goes to zero. Yes, this match the value prediction.</w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="title"/><w:jc w:val="left"/></w:pPr><w:r><w:t>3.  (20'')</w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="text"/><w:jc w:val="left"/></w:pPr><w:r><w:rPr><w:b/></w:rPr><w:t>The model: (5'')</w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="text"/><w:jc w:val="left"/></w:pPr><w:customXml w:element="image"><w:customXmlPr><w:attr w:name="height" w:val="-1"/><w:attr w:name="width" w:val="-1"/><w:attr w:name="relationshipId" w:val="rId5"/></w:customXmlPr></w:customXml></w:p><w:p><w:pPr><w:pStyle w:val="text"/><w:jc w:val="left"/></w:pPr><w:r><w:rPr><w:b/></w:rPr><w:t>Output: (5'')</w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="text"/><w:jc w:val="left"/></w:pPr><w:customXml w:element="image"><w:customXmlPr><w:attr w:name="height" w:val="-1"/><w:attr w:name="width" w:val="-1"/><w:attr w:name="relationshipId" w:val="rId6"/></w:customXmlPr></w:customXml></w:p><w:p><w:pPr><w:pStyle w:val="text"/><w:jc w:val="left"/></w:pPr><w:r><w:rPr><w:b/></w:rPr><w:t>(d) (2'') The  magnitute of y and u are almost the same, since M(w) = 5/sqrt(25+0.01)=1. Hence, it's match the prediction.</w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="text"/><w:jc w:val="left"/></w:pPr><w:r><w:rPr><w:b/></w:rPr><w:t>(e) (8'', analysis correct: 5'', figure correct: 3'', Have to show the figure) Let's try w = 10. The output as below, M(w) = 5/sqrt(25+100)=0.447, Hence, it's match the prediction.</w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="text"/><w:jc w:val="left"/></w:pPr><w:r><w:rPr><w:b/></w:rPr><w:t>For other results, If w=0, output magnitude should be 1. If w = 1, output magnitude shoould be close to 1 but not over 1 (M = 5/sqrt(26)=0.98). </w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="text"/><w:jc w:val="left"/></w:pPr><w:r><w:rPr><w:b/></w:rPr><w:t>If try w=0.01 again, not points will be graded in this question.</w:t></w:r></w:p><w:p><w:pPr><w:pStyle w:val="text"/><w:jc w:val="left"/></w:pPr><w:customXml w:element="image"><w:customXmlPr><w:attr w:name="height" w:val="-1"/><w:attr w:name="width" w:val="-1"/><w:attr w:name="relationshipId" w:val="rId7"/></w:customXmlPr></w:customXml></w:p></w:body></w:document>

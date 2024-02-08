@@ -18,7 +18,7 @@ Q_N = Q_N*Q;
 % Create the domain for for error calculation
 Q_2error = zeros(1, length(N));
 % Subtract the summation from the actual value to calculate the error
-Q_2error = ((Q_2N - Q_N) / Q) * 100;
+Q_2error = Q_2N - Q_N;
 % Declare the figure
 figure;
 % Declare the subplot
@@ -29,22 +29,24 @@ plot(N, Q_2N, 'blue');
 hold on;
 % Plot the integral line
 plot(N, Q_N, 'red');
-% Add tilte
-title('$Q_{2}$ and $Q$ vs $N$','Interpreter','latex');
+% Add title
+title('$Q_{3}$ and $Q$ vs $N$','Interpreter','latex');
 % Add x axis label
 xlabel('$N$' ,'Interpreter','latex');
 % Add y axis label
-ylabel('$Q_{2}$ and $Q$','Interpreter','latex');
+ylabel('$Q_{3}$ and $Q$','Interpreter','latex');
 % Add legend
-legend('$Q_{2}$', '$Q$', 'Interpreter','latex' );
+legend('$Q_{3}$', '$Q$', 'Interpreter','latex' );
 % Second subplot
+grid on;
 subplot(2, 1, 2);
 % Plot the error line in a seprate subplot
 plot(N, Q_2error, 'blue');
-title('$Q_{2}$ Error vs $N$','Interpreter','latex');
+title('$Q_{3}$ Error vs $N$','Interpreter','latex');
 % Add x axis label
 xlabel('$N$' ,'Interpreter','latex');
 % Add y axis label
 ylabel('% Error','Interpreter','latex');
+grid on;
 fig = gcf; % Obtains current graphic in matlab
 exportgraphics(fig, 'Fig/q2_sum_error_plot.pdf','ContentType','vector'); % Exports plot as a vector pdf image. (Requires R2020a or later)

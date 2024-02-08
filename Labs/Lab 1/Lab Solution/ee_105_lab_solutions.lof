@@ -1,7 +1,9 @@
 \babel@toc {english}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces \Large $f(x_{i}) = \frac {cos(x_{i})}{1 + e^{3x_{i}}}$ for $N \ = \ 200$\relax }}{7}{figure.caption.4}%
-\contentsline {figure}{\numberline {2}{\ignorespaces \Large $f(x_{i}) = \frac {cos(x_{i})}{1 + e^{3x_{i}}}$ for $N \ = \ 5$\relax }}{8}{figure.caption.5}%
-\contentsline {figure}{\numberline {3}{\ignorespaces \Large $f(x_{i}) = \frac {cos(x_{i})}{1 + e^{3x_{i}}}$ for $N \ = \ 10$\relax }}{9}{figure.caption.6}%
-\contentsline {figure}{\numberline {4}{\ignorespaces \Large Right rectangular approximation for $Q_{2}$\relax }}{12}{figure.caption.7}%
-\contentsline {figure}{\numberline {5}{\ignorespaces \Large $Q_{1}$ and $Q$ vs $N$ and the \% Error for $Q_{1}$\relax }}{17}{figure.caption.8}%
-\contentsline {figure}{\numberline {6}{\ignorespaces \Large $Q_{2}$ and $Q$ vs $N$ and the \% Error for $Q_{2}$\relax }}{20}{figure.caption.9}%
+\contentsline {figure}{\numberline {1}{\ignorespaces \Large $f(x_{i}) = \frac {cos(x_{i})}{1 + e^{3x_{i}}}$ for $N \ = \ 200$\relax }}{6}{figure.caption.4}%
+\contentsline {figure}{\numberline {2}{\ignorespaces \Large $f(x_{i}) = \frac {cos(x_{i})}{1 + e^{3x_{i}}}$ for $N \ = \ 5$\relax }}{7}{figure.caption.5}%
+\contentsline {figure}{\numberline {3}{\ignorespaces \Large $f(x_{i}) = \frac {cos(x_{i})}{1 + e^{3x_{i}}}$ for $N \ = \ 10$\relax }}{8}{figure.caption.6}%
+\contentsline {figure}{\numberline {4}{\ignorespaces \Large Right rectangular approximation for $Q_{2}$ for $N = 25$\relax }}{11}{figure.caption.7}%
+\contentsline {figure}{\numberline {5}{\ignorespaces \Large Right rectangular approximation for $Q_{2}$ for $N = 250$\relax }}{12}{figure.caption.8}%
+\contentsline {figure}{\numberline {6}{\ignorespaces \Large $Q_{1}$ and $Q$ vs $N$ and the \% Error for $Q_{1}$\relax }}{16}{figure.caption.9}%
+\contentsline {figure}{\numberline {7}{\ignorespaces \Large $Q_{3}$ and $Q$ vs $N$ and the \% Error for $Q_{2}$\relax }}{20}{figure.caption.10}%
+\contentsline {figure}{\numberline {8}{\ignorespaces \Large Error Comparison of $Q_{1}$ and $Q_{3}$\relax }}{21}{figure.caption.11}%

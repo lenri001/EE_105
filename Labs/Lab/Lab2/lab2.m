@@ -1,0 +1,79 @@
+% LAB 2: NUMERIC SIMULATION 
+
+%% PART 1: SIMULATE SYSTEM WITH LSIM 
+
+% Define the transfer function of the system
+H = tf([16],[1 4 16]);
+
+% Square signal (essentially the step response of the sytem)
+[u,t] = gensig('square',5,10,0.001);
+x0 = [3,0]; 
+
+figure(1)
+% Simulate the system with square signal
+subplot(311)
+lsim(sys,u,t, x0);
+
+% Sinusoidal signal
+[u,t] = gensig('sin',5,10,0.01);
+%u = zeros(2501, 1); 
+% Simulate the system with sinusoidal
+subplot(312)
+lsim(sys,u,t, x0);
+
+% Zero input 
+u = zeros(size(u));  
+subplot(313)
+lsim(sys,u,t, x0); 
+
+
+% Sine OR natural response 
+% RESP = 0 : Natural 
+% RESP = 1 : Sinusoidal
+
+%% PART 2: SIMULATE SYSTEM WITH EULER METHOD
+
+x0 = [3,0]; 
+T = 0.01;
+RESP = 1; 
+
+N = round(5/T) + 1;
+if RESP==0
+    u = zeros(N,1);
+elseif RESP ==1
+[u,~] = gensig('sin',5,10,0.01);
+else
+    u= 0;
+end
+figure(2);
+clf;
+f_sim(x0, T, u, RESP); 
+
+%% PART 3: SIMULATE SYSTEM WITH ODE23
+
+tspan = [0 5]; 
+x0 = [3;0]; 
+u = 0;
+tic 
+
+[t,y] = ode23(@(t,x) f(t,x,u), tspan, x0); 
+
+tm = toc; 
+tm = tm*1000; 
+
+figure(3); 
+clf; 
+
+subplot(211)
+plot(t,y(:,1), '.-b', 'MarkerSize', 12);
+str = sprintf('ODE23 Simulation Took %g ms', tm); 
+title (str)
+xlabel('Time, t, seconds');
+ylabel('$ \bf y$', 'Interpreter', 'latex');
+grid on;
+
+subplot(212)
+plot(t,y(:,2), '.-r', 'MarkerSize', 12);
+xlabel('Time, t, seconds');
+ylabel('$ \bf \dot{y}$', 'Interpreter', 'latex');
+grid on;

@@ -2,9 +2,9 @@ clear;
 clc;
 % Matrix Multiplication
 % Declare A Matrix (3 x 1 Matrix)
-A = [pi;sqrt(2);exp(pi)];
+A = [sqrt(2); 1; exp(pi)];
 % Declare B Matrix (1 x 3 Matrix)
-B = [1;5;7];
+B = [3;5;7];
 % Set D to zero to start the for loop
 D = 0;
 % Assumes both vector A and B are of the same length

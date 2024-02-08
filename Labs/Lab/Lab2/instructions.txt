@@ -1,0 +1,7 @@
+1. Check if you have the Control System Toolbox installed. 
+	Use 'help lsim' in command window. If it says 'lsim not found', you probably do not have the toolbox installed, then do Step 2 below. 
+2. Download and install the Control Systems Toolbox in MATLAB
+	a. Click the APPS button (next to HOME in MATLAB 2019b.)
+	b. Click on Get More Apps
+	c. Search for 'Control System Toolbox' and follow instructions on how to install it it. 
+	d. Repeat step 1 to make sure it works. 

@@ -1,0 +1,10 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Objectives}{3}{subsection.1.1}%
+\contentsline {section}{\numberline {2}Pre-Lab}{3}{section.2}%
+\contentsline {section}{\numberline {3}LSIM and gensig}{5}{section.3}%
+\contentsline {section}{\numberline {4}Varying Step-Size of 1.0 sin(0.1)}{8}{section.4}%
+\contentsline {section}{\numberline {5}ODE23 with Zero Input}{17}{section.5}%
+\contentsline {section}{\numberline {6}Varying $\omega $ in 1.0 sin($\omega $t)}{17}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Bode Plot}{23}{subsection.6.1}%
+\contentsline {section}{\numberline {7}Conclusion}{25}{section.7}%
