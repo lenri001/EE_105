@@ -237,12 +237,14 @@
 			\end{array}\right] & D=[0]
 		\end{array}
 		$$
-	\section{LSIM and gensig}
+	\section{Linear System Function}
 		%%% INSERT CODE HERE AS A .m FILE %%%
 		\lstinputlisting[language=Matlab, caption = {\Large lsim Simulation of the State Space Model with domain of 0-100 seconds}]{Code/lsim_run_100.m}
+		This code generates the plot for Figure \ref{fig:lsimrun100s}.
+		\newpage
 		%%% INSERT CODE HERE AS A .m FILE %%%
 		\lstinputlisting[language=Matlab, caption = {\Large lsim Simulation of the State Space Model with domain of 0-4 seconds}]{Code/lsim_run_4.m}
-		
+		This code generates the plot for Figure \ref{fig:lsimrun4s}.
 		%%% Insert Figure Here as a .pdf File %%%
 		\begin{figure}[H]
 			\centering
@@ -250,6 +252,7 @@
 			\caption{lsim Simulation of the State Space Model with a domain of 0-100 seconds}
 			\label{fig:lsimrun100s}
 		\end{figure}
+		This is the plot for Listing 1.
 		%%% Insert Figure Here as a .pdf File %%%
 		\begin{figure}[H]
 			\centering
@@ -257,16 +260,18 @@
 			\caption{lsim Simulation of the State Space Model with a domain of 0-4 seconds}
 			\label{fig:lsimrun4s}
 		\end{figure}
-
-	\section{Varying Step-Size of 1.0 sin(0.1)}
+		This is the plot for Listing 2.
+		\newpage
+	\section{Euler Integration Routine}
 		%%% INSERT CODE HERE AS A .m FILE %%%
-		\lstinputlisting[language=Matlab, caption = {\Large Function for the State Space of the representation of the system}]{Code/f.m}
+		\lstinputlisting[language=Matlab, caption = {\Large Run the Euler function for different step sizes $h$}]{Code/run_Euler.m}
 		
 		%%% INSERT CODE HERE AS A .m FILE %%%
 		\lstinputlisting[language=Matlab, caption = {\Large Function to run Euler recursion}]{Code/Euler.m}
 		
 		%%% INSERT CODE HERE AS A .m FILE %%%
-		\lstinputlisting[language=Matlab, caption = {\Large Run the Euler function for different step sizes $h$}]{Code/run_Euler.m}
+		\lstinputlisting[language=Matlab, caption = {\Large Function for the State Space of the representation of the system}]{Code/f.m}
+			
 		%%% Insert Figure Here as a .pdf File %%%
 		\begin{figure}[H]
 			\centering
@@ -303,7 +308,7 @@
 			\label{fig:eulerploth0001}
 		\end{figure}
 	
-		Figures \ref{fig:eulerploth1}, \ref{fig:eulerploth01} do not settle at all. Figure \ref{fig:eulerploth005} does settle, but does so at around 7-8 seconds. Figures \ref{fig:eulerploth001}, \ref{fig:eulerploth0001} do settle at around 3 seconds which is close to $T_{S}$ calculated. 
+		The curves in Figures \ref{fig:eulerploth1}, \ref{fig:eulerploth01} do not settle at all. The curve in Figure \ref{fig:eulerploth005} does settle, but does so at around 7-8 seconds. The curves Figures \ref{fig:eulerploth001}, \ref{fig:eulerploth0001} do settle at around 3 seconds which is close to $T_{S}$ calculated. 
 		\begin{table}[H]
 			\centering
 			\caption{Cputimes for Various Euler's Step Sizes}
@@ -319,7 +324,15 @@
 				\hline CPUTIME (ms) & & 0.054 & & 0.234 & & 0.554 & & 5.219 \\
 				\hline
 			\end{tabular}
+			\label{tab:euler}
 		\end{table}
+		After running the sine input with different step-sizes, the computational time and accuracy are shown in Table \ref{tab:euler}. The following conclusions can be made'
+		\begin{itemize}
+			\item There is a direct relationship between step-size and computational cost. Reducing the step-size by 10x leads to a roughly 10x increase in computation time. This suggests that the chosen numerical method might not be very efficient for small step-sizes, and alternative methods should be considered if high accuracy is required at small scales.
+			\item The simulation exhibits stability issues for large step-sizes (h > 0.01). This indicates that the chosen step-size might be too large to capture the dynamics of the system accurately. Stable simulations are crucial for obtaining reliable results, so it's important to address this instability
+			\item For smaller step-sizes (h < 0.01), the simulation becomes stable and the accuracy improves as the step-size decreases. This suggests that the chosen numerical method is more accurate for smaller step-sizes, but at the cost of increased computational effort.
+			\item There is a trade-off between the accuracy of the simulation and the computational cost. Smaller step-sizes lead to more accurate results but require more computation time. The optimal step-size depends on the specific requirements of the study. If high accuracy is essential, even if it means longer computation times, then smaller step-sizes should be used. However, if computational efficiency is a priority, then a larger step-size might be acceptable if the accuracy remains within acceptable limits.
+		\end{itemize}
 	\section{ODE23 with Zero Input}
 	
 		\begin{figure}[H]
@@ -329,8 +342,8 @@
 			\label{fig:odenoinput}
 		\end{figure}
 		
-					
-	\section{Varying $\omega$ in 1.0 sin($\omega$t)}
+	\newpage			
+	\section{Varying $\omega$ in 1.0 sin($\omega$t) using ODE23}
 		%%% INSERT CODE HERE AS A .m FILE %%%
 		\lstinputlisting[language=Matlab, caption = {\Large Function for the State Space of the representation of the system for ODE23}]{Code/f_ode.m}
 		
@@ -341,9 +354,9 @@
 			\centering
 			\includegraphics[width=1\linewidth]{Code/Fig/ode_sin_input_0.1}
 			\caption{Ode Plot for $\omega$ = 0.1}
-			\label{fig:odesininput0}
+			\label{fig:odesininput0_1}
 		\end{figure}
-		
+		Magnitude and Phase shift of the system response in Figure \ref{fig:odesininput0_1} are near identical to the input signal.
 		
 		%%% INSERT CODE HERE AS A .m FILE %%%
 		\lstinputlisting[language=Matlab, caption = {\Large Run ODE23 for various sin($\omega$t)}]{Code/ode_sin_input_omega.m}	
@@ -354,23 +367,26 @@
 			\caption{Ode Plot for $\omega$ = 1}
 			\label{fig:odesininput1}
 		\end{figure}
+		Magnitude and Phase shift of the system response in Figure \ref{fig:odesininput1} are near identical to the input signal.
 		%%% Insert Figure Here as a .pdf File %%%
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=1\linewidth]{Code/Fig/ode_sin_input_0.09}
-			\caption{Ode Plot for $\omega$ = 0.09}
-			\label{fig:odesininput009}
+			\includegraphics[width=1\linewidth]{Code/Fig/ode_sin_input_5.65}
+			\caption{Ode Plot for $\omega$ = 5.65}
+			\label{fig:odesininput5_65}
 		\end{figure}
+		The magnitude of system response Figure \ref{fig:odesininput5_65} is $\approx$ 2,while the phase shift is $\approx$ -1.3 rad.
 		%%% Insert Figure Here as a .pdf File %%%
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=1\linewidth]{Code/Fig/ode_sin_input_0.001}
-			\caption{Ode Plot for $\omega$ = 0.001}
-			\label{fig:odesininput0001}
+			\includegraphics[width=1\linewidth]{Code/Fig/ode_sin_input_16}
+			\caption{Ode Plot for $\omega$ = 16}
+			\label{fig:odesininput16}
 		\end{figure}		
-	
+		The magnitude of system response of Figure \ref{fig:odesininput16} is $\approx$ 1.6, while the phase shift is $\approx$  -3.3 rad.
+		
+		\newpage
 		\subsection{Bode Plot}
-	
 		%%% INSERT CODE HERE AS A .m FILE %%%
 		\lstinputlisting[language=Matlab, caption = {\Large Bode Plot Code for State Space Function}]{Code/bode.m}
 		
@@ -382,20 +398,31 @@
 		\end{figure}
 	
 		\begin{itemize}
-			\item At $\omega$ = 1, the amplitude is 1.02481 and the phase is -0.0855053
-			\item At $\omega$ = 0.09, the amplitude is 1.0002 and the phase is -0.00750155
-			\item At $\omega$ = 0.001, the amplitude is 1 and the phase is -8.33333e-05
+			\item At $\omega$ = 0.1, the amplitude is 1.000 and the phase is -0.008
+			\item At $\omega$ = 1, the amplitude is 1.025 and the phase is -0.0855
+			\item At $\omega$ = 5.65, the amplitude is 2.065 and the phase is -1.334
+			\item At $\omega$ = 16, the amplitude is 0.160 and the phase is -2.927
 		\end{itemize}
 		
+		The steady state values obtained from the simulations are near identical to the frequency free-response calculations. 
 	\section{Conclusion}
 	%%% PUT CONCLUSION HERE %%
-	This MATLAB lab successfully explored the intricacies and challenges of numerically solving differential equations. By constructing a dynamic system simulation, we gained practical experience in applying various numerical methods and interpreting the results.
+	This MATLAB lab successfully explored the intricacies and challenges of numerically solving differential equations. By constructing a dynamic system simulation, the students gained practical experience in applying various numerical methods and interpreting the results.
 	
 	\begin{itemize}
-		\item Students solidified our understanding of how numerical methods approximate the solution of differential equations
-		\item Students explored different MATLAB tools and techniques for implementing these methods, such as ode23 and custom functions
-		\item Students learned to critically evaluate the accuracy and stability of numerical solutions, considering factors like step size and tolerance
-		\item Students became aware of potential pitfalls like stiffness and convergence issues, highlighting the importance of choosing appropriate methods and parameter values
+		\item Step Size
+			\begin{itemize}
+				\item Smaller step sizes (h < 0.01) enhance accuracy and stabilize the simulation, but at a 10x computational cost increase per 10x step size reduction.
+				\item Avoid large step sizes (h > 0.01) to ensure stable and reliable simulations.
+			\end{itemize}
+		\item Frequency
+			\begin{itemize}
+				\item Both Euler integration and sde23 methods accurately predict the expected settling time of $T_s = 3.066\overline{6}$, solidifying the validity of the simulation in a steady-state context.
+				\item This method effectively predicts the magnitude and phase of the steady-state response, further strengthening confidence in the overall simulation's accuracy.
+			\end{itemize}
+			
 	\end{itemize}
+	
+
 	
 \end{document}

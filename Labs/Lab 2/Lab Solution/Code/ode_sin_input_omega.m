@@ -1,4 +1,4 @@
-for i = [0.001, 0.09, 1]
+for i = [1, 5.65, 16]
     tspan = [0 10]; % Interval of integration
     x0 = [3 0]; % Initial condition
     omega = i;

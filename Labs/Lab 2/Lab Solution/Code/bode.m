@@ -16,9 +16,10 @@ D = 0;
 % Define state-space model
 sys = ss(A,B,C,D);
 
-omega = [1, 0.09, 0.001];
+omega = [0.1, 1, 5.65, 16];
 [mag,phase] = bode(sys, omega);
 phase = deg2rad(phase);
 fprintf('At omega = %g, the amplitude is %g and the phase is %g\n', omega(1), mag(1), phase(1));
 fprintf('At omega = %g, the amplitude is %g and the phase is %g\n', omega(2), mag(2), phase(2));
 fprintf('At omega = %g, the amplitude is %g and the phase is %g\n', omega(3), mag(3), phase(3));
+fprintf('At omega = %g, the amplitude is %g and the phase is %g\n', omega(4), mag(4), phase(4));
