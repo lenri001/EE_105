@@ -137,51 +137,116 @@
 	
 	\section{Introduction}
 	%%% PUT INTRODUCTION HERE %%%
+	This laboratory introduces Simulink through the analysis and design of linear ordinary differential equations (ODEs). You will explore key systems concepts like transfer functions, time constants, pole locations, DC gain, and frequency response. The design process involves choosing system parameters to meet specific requirements, using transfer functions for analysis and state-space representation for simulation testing. The lab starts with fundamental concepts in first-order systems and progressively generalizes them to higher-order systems.
+	
 	
 	\section{Pre-Lab}
 		%%% Insert Figure Here as a .pdf File %%%
+		\subsection{Part 1}
+			\begin{figure}[H]
+			\centering
+			\includegraphics[width=1\linewidth]{"Code/Fig/prelab_part1.png"}
+			\caption{Figures for the Prelab Part 1}
+			\label{fig:prelab}
+		\end{figure}
+		\begin{itemize}
+			\item (a) Only graphs (a), (c), and (f) from Figure \ref{fig:prelab} could correspond to a first order linear system, as none of the other graphs were exponential.
+			\item (b) Graphs (b), (d), and (e) did not match the form of a decaying function.
+			\item (c) \begin{itemize}
+				\item (f) Parameter $a$ has the value zero, and thus never decays.
+				\item (c)  has a positive value for its parameter a, thus the system is unstable
+				\item (a)  has a negative value for a, thus it is stable. We can then use the initial value of that graph,
+				y(0) = 1, $a$ = -.460517 therefore, $\tau$ = 2.2 seconds
+			\end{itemize}
+		\end{itemize}
 		
-	
+		\subsection{Part 2}
+		\begin{equation}
+			\begin{aligned}
+				\mathrm{H}(\mathrm{s})=\mathrm{Y}(\mathrm{s}) / \mathrm{U}(\mathrm{s})=\frac{1}{s R C+1} \\ 	\mathrm{H}(\mathrm{s})=\mathrm{Y}(\mathrm{s}) / \mathrm{U}(\mathrm{s})=\frac{\frac{1}{R C}}{s+\frac{1}{R C}}
+			\end{aligned}
+		\end{equation}
+		
+		\begin{equation}
+			\begin{aligned}
+				\frac{d x}{d t} & =\left[\frac{-1}{\mathrm{RC}}\right] x+\left[\frac{1}{\mathrm{RC}}\right] u \\
+				y & =[1] x
+			\end{aligned}
+		\end{equation}
+		\subsection{Part 3}
+		\begin{equation}
+			\begin{aligned}
+				H(j \omega) & = Y(j \omega) / U(j \omega)=\frac{100-j \omega * 10}{100+\omega^2} \\
+				\quad|H(j \omega)| & = \frac{10}{\sqrt{100+\omega^2}} \\
+				\quad \angle H(j \omega) & = \arctan (-\omega / 10) \\
+			\end{aligned}
+		\end{equation}
+		
+		\begin{table}[H]
+			\centering
+			\caption{Magnitude and Phase for RC Circuit}
+		\begin{tabular}{|c|c|c|c|c|}			
+			\hline$\omega, \mathrm{rad} / \mathrm{s}$ & $|H(j \omega)|$ & $20 \log |H(j \omega)|$ & $\angle H(j \omega) \mathrm{rad}$ & $\angle H(j \omega)$ deg \\
+			\hline 0.00 & 1 & 0 &  0.00 & $0^{\circ}$ \\
+			\hline 0.01 & 1& 0 & -0.001 & $-0.057^{\circ}$ \\
+			\hline 0.10 & 1  & 0 & -0.01 & $-0.573^{\circ}$ \\
+			\hline 1.00 &  0.995  &-0.043 & -0.1 & $-5.711^{\circ}$ \\
+			\hline 10.00 &  0.707 & -3.01& -0.785 & $-45^{\circ}$ \\
+			\hline 100.00 & 0.1 & -20.43 & -1.471  & $-84.289^{\circ}$ \\
+			\hline
+		\end{tabular}
+		\label{tab:rc}
+	\end{table}
+		\subsection{Part 4}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=1\linewidth]{"Code/Fig/prelab_bode.png"}
+			\caption{Bode Plot for RC Circuit}
+			\label{fig:bode}
+		\end{figure}
+		Figure \ref{fig:bode} matches the values in Table \ref{tab:rc}. 
+		\newpage
 	\section{Time Constant Estimation}
 		%%% INSERT CODE HERE AS A .m FILE %%%
-		\lstinputlisting[language=Matlab, caption = {\Large Matlab Code for Time Constant Estimation}]{time_constant_estimation.m}	
+		\lstinputlisting[language=Matlab, caption = {\Large Matlab Code for Time Constant Estimation}]{"Code/time_constant_estimation.m"}	
+			$\tau$  from both methods is $\approx$ 0.15.
 		%%% Insert Figure Here as a .pdf File %%%
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=1\linewidth]{"Fig/.pdf"}
-			\caption{Matlab Data Plot}
-			\label{fig:}
+			\includegraphics[width=1\linewidth]{"Code/Fig/time_constant_plot.pdf"}
+			\caption{Time Constant Estimation Plot}
+			\label{fig:time_constant_plot}
 		\end{figure}
 		% Answer questions pertaining to the section below
-		
+	  	0.37 $\times$ 4 i$\approx$ 1.5, so $t$ is $\approx$ 0.15.
 	\section{Simulation with Simulink}
 		\subsection{Zero Input Response}
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=1\linewidth]{"plot"} % Does not have to be a .pdf, can be another image file
+				\includegraphics[width=1\linewidth]{"Code/Fig/part2_1_slx.png"} % Does not have to be a .pdf, can be another image file
 				\caption{Simulink Diagram for Zero Input Response}
 				\label{fig:slx_zero_input_diagram}
 			\end{figure}	
 			%%% Insert Figure Here as a image File %%%
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=1\linewidth]{"plot"} 
+				\includegraphics[width=1\linewidth]{"Code/Fig/zero_input_output.png"} 
 				\caption{Oscilloscope Output of Zero Input Response}
 				\label{fig:slx_zero_input_output}
 			\end{figure}
 			% Answer questions pertaining to the section below
-			
+			Figure \ref{fig:slx_zero_input_output} is similar to Figure \ref{fig:time_constant_plot}, and its time constant.
 		\subsection{Forced Response: Step input}
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=1\linewidth]{"plot"} % Does not have to be a .pdf, can be another image file
+				\includegraphics[width=1\linewidth]{"Code/Fig/part2_2_slx.png"} % Does not have to be a .pdf, can be another image file
 				\caption{Simulink Diagram for Step Input Response}
 				\label{fig:slx_step_input_diagram}
 			\end{figure}	
 			%%% Insert Figure Here as a image File %%%
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=1\linewidth]{"plot.pdf"} 
+				\includegraphics[width=1\linewidth]{"Code/Fig/step_input_output.png"} 
 				\caption{Oscilloscope Output of Step Input Response}
 				\label{fig:slx_step_input_output}
 			\end{figure}
@@ -190,7 +255,7 @@
 		\subsection{Forced Response: Sinusoidal Input}
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=1\linewidth]{"plot"} % Does not have to be a .pdf, can be another image file
+				\includegraphics[width=1\linewidth]{"Code/Fig/part2_3_slx.png"} % Does not have to be a .pdf, can be another image file
 				\caption{Simulink Diagram for Sinusoidal Input Response}
 				\label{fig:slx_sine_input_diagram}
 			\end{figure}
@@ -198,54 +263,68 @@
 			%%% Insert Figure Here as a image File %%%		
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=1\linewidth]{"plot.pdf"} 
+				\includegraphics[width=1\linewidth]{"Code/Fig/sine_input_output_w_0.png"} 
 				\caption{Oscilloscope Output of Sinusoidal Input Response $\omega$ = 0.00}
 				\label{fig:slx_sine_input_output_w_0}
 			\end{figure}	
-				
+			Magnitude and Phase are near identical.
 			%%% Insert Figure Here as a image File %%%
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=1\linewidth]{"plot.pdf"} 
-				\caption{Oscilloscope Output of Sinusoidal Input Response $\omega$ = 0.10}
-				\label{fig:slx_sine_input_output_w_0_10}
-			\end{figure}	
-		
-			%%% Insert Figure Here as a image File %%%
-			\begin{figure}[H]
-				\centering
-				\includegraphics[width=1\linewidth]{"plot.pdf"} 
+				\includegraphics[width=1\linewidth]{"Code/Fig/sine_input_output_w_0_01.png"} 
 				\caption{Oscilloscope Output of Sinusoidal Input Response $\omega$ = 0.01}
 				\label{fig:slx_sine_input_output_w_0_01}
 			\end{figure}
-		
+			Magnitude and Phase are near identical.
 			%%% Insert Figure Here as a image File %%%
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=1\linewidth]{"plot.pdf"} 
+				\includegraphics[width=1\linewidth]{"Code/Fig/sine_input_output_w_0_1.png"} 
+				\caption{Oscilloscope Output of Sinusoidal Input Response $\omega$ = 0.10}
+				\label{fig:slx_sine_input_output_w_0_10}
+			\end{figure}	
+			Magnitude and Phase are near identical.
+			%%% Insert Figure Here as a image File %%%
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=1\linewidth]{"Code/Fig/sine_input_output_w_1.png"} 
 				\caption{Oscilloscope Output of Sinusoidal Input Response $\omega$ = 1.00}
 				\label{fig:slx_sine_input_output_w_1}
 			\end{figure}
-			
+			Magnitude and Phase are near identical.
 			%%% Insert Figure Here as a image File %%%
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=1\linewidth]{"plot.pdf"} 
+				\includegraphics[width=1\linewidth]{"Code/Fig/sine_input_output_w_10.png"} 
 				\caption{Oscilloscope Output of Sinusoidal Input Response $\omega$ = 10.00}
 				\label{fig:slx_sine_input_output_w_10}
 			\end{figure}
-					
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=1\linewidth]{"Code/Fig/w_10.png"} 
+				\caption{Oscilloscope Magnitude and Phase Shift of Sinusoidal Input Response $\omega$ = 10.00}
+				\label{fig:slx_sine_input_output_w_10_diff}
+			\end{figure}
+			The magnitude difference is $\approx$ .0708 and the phase shift is $\approx$ -0.746 rad.
 			%%% Insert Figure Here as a image File %%%
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=1\linewidth]{"plot.pdf"} 
+				\includegraphics[width=1\linewidth]{"Code/Fig/sine_input_output_w_100.png"} 
 				\caption{Oscilloscope Output of Sinusoidal Input Response $\omega$ = 100.00}
 				\label{fig:slx_sine_input_output_w_100}
 			\end{figure}
-		
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=1\linewidth]{"Code/Fig/w_100.png"} 
+				\caption{Oscilloscope Magnitude and Phase Shift  of Sinusoidal Input Response $\omega$ = 100.00}
+				\label{fig:slx_sine_input_output_w_100_diff}
+			\end{figure}
+			The magnitude difference is $\approx$ 0.102 and the phase shift is $\approx$ -1.9rad. \\
 			% Answer questions pertaining to the section below
+			The frequency and phase are similar to those predicted in Table \ref{tab:rc} and Figure \ref{fig:bode}. Only Figure \ref{fig:slx_sine_input_output_w_100_diff} was slight inaccurately since the plot was somewhat low resolution 
 		
 	\section{Conclusion}
 	%%% PUT CONCLUSION HERE %%
+	This lab successfully modeled a first order RC circuit using matlab and simulink to simulate the circuit.  At very low frequencies the circuits normal decay behavior, but at higher frequency the capacitor will start change the magnitude and shift the phase of an input signal. This circuit behaves as a low pass that has almost nor distortion with $\omega$ $\leq$ 1 and basically filter out sin gals where $\omega$ > 100.
 
 \end{document}
