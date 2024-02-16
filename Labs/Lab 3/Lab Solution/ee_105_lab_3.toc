@@ -1,4 +1,4 @@
-\babel@toc {english}{}
+\babel@toc {english}{}\relax 
 \contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
 \contentsline {section}{\numberline {2}Pre-Lab}{3}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Part 1}{3}{subsection.2.1}%
@@ -6,8 +6,8 @@
 \contentsline {subsection}{\numberline {2.3}Part 3}{4}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Part 4}{5}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Time Constant Estimation}{6}{section.3}%
-\contentsline {section}{\numberline {4}Simulation with Simulink}{8}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Zero Input Response}{8}{subsection.4.1}%
+\contentsline {section}{\numberline {4}Simulation with Simulink}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Zero Input Response}{9}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Forced Response: Step input}{10}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Forced Response: Sinusoidal Input}{11}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Conclusion}{18}{section.5}%
+\contentsline {section}{\numberline {5}Conclusion}{21}{section.5}%
